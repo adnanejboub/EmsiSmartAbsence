@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Emsi Smart Presence</string>
+    <string name="emploi_du_temps">Emploi du temps</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="logo_user">User profile</string>
+    <string name="open_drawer">Ouvrir le tiroir de navigation</string>
+    <string name="close_drawer">Fermer le tiroir de navigation</string>
+</resources>
+

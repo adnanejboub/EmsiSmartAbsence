@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_maps"
+        android:icon="@drawable/ic_maps"
+        android:title="Maps" />
+    <item
+        android:id="@+id/nav_documents"
+        android:icon="@drawable/ic_document"
+        android:title="Documents" />
+    <item
+        android:id="@+id/nav_absence"
+        android:icon="@drawable/ic_absence"
+        android:title="Absence" />
+    <item
+        android:id="@+id/nav_assistant"
+        android:icon="@drawable/ic_chat"
+        android:title="Assistant Ai" />
+    <item
+        android:id="@+id/nav_rattrapage"
+        android:icon="@drawable/ic_planning"
+        android:title="Rattrapage" />
+    <item
+        android:id="@+id/nav_emploi"
+        android:icon="@drawable/ic_emploi"
+        android:title="Emploi du temps" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profil" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Déconnexion" />
+</menu>

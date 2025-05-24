@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- EditText pour écrire la question ou le prompt -->
+    <EditText
+        android:id="@+id/prompt"
+        android:hint="Write your prompt here...."
+        android:layout_width="match_parent"
+        android:layout_height="48sp" />
+
+    <!-- Bouton pour envoyer -->
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Envoyer"
+        android:layout_gravity="end" />
+
+    <!-- TextView pour afficher la réponse -->
+    <TextView
+        android:id="@+id/geminianswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réponse ici"
+        android:textSize="16sp"
+        android:padding="16dp"/>
+
+</LinearLayout>
