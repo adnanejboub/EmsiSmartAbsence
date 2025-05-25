@@ -81,7 +81,7 @@ public class Home extends AppCompatActivity {
                 } else if (itemId == R.id.nav_emploi) {
                     startActivity(new Intent(Home.this, EmploiTempsActivity.class));
                 } else if (itemId == R.id.nav_profile) {
-                    startActivity(new Intent(Home.this, ProfilActivity.class));
+                    startActivity(new Intent(Home.this, Profil.class));
                 } else if (itemId == R.id.nav_logout) {
                     mAuth.signOut();
                     startActivity(new Intent(Home.this, Login.class));
