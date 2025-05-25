@@ -8,12 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-    <!-- Main content -->
+    <!-- Main content area -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Scrollable content -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,13 +26,14 @@
                 android:orientation="vertical"
                 android:paddingBottom="16dp">
 
-
+                <!-- Header Section -->
                 <RelativeLayout
                     android:id="@+id/topArea"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:background="@drawable/background_gradient">
 
+                    <!-- Menu Icon -->
                     <ImageView
                         android:id="@+id/menu_icon"
                         android:layout_width="40dp"
@@ -41,17 +43,19 @@
                         android:contentDescription="@string/open_drawer"
                         app:srcCompat="@drawable/ic_menu" />
 
+                    <!-- Welcome Title -->
                     <TextView
                         android:id="@+id/myDashboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="70dp"
-                        android:text="@string/welcome"
+                        android:text="Bienvenue"
                         android:textColor="@color/green1"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
+                    <!-- Admin Name -->
                     <TextView
                         android:id="@+id/dashboard_adminName"
                         android:layout_width="wrap_content"
@@ -66,7 +70,125 @@
                         tools:ignore="HardcodedText" />
                 </RelativeLayout>
 
+                <!-- Statistics and Next Course Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/buuton_background"
+                    android:padding="20dp"
+                    android:layout_marginBottom="24dp"
+                    android:elevation="4dp">
 
+                    <!-- Section Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="Aperçu Aujourd'hui"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- Statistics Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginBottom="16dp">
+
+                        <!-- Today's Courses -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:background="@drawable/next_course_background"
+                            android:layout_marginEnd="8dp">
+
+                            <TextView
+                                android:id="@+id/cours_aujourdhui"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/green1"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cours Aujourd'hui"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:gravity="center"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+
+                        <!-- Rattrapages -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:background="@drawable/next_course_background"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:id="@+id/rattrapages_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/orange"
+                                android:textSize="32sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rattrapages"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:gravity="center"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Next Course -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/next_course_background"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prochain Cours"
+                            android:textColor="@color/green1"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/prochain_cours"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chargement..."
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Grid of Cards -->
                 <androidx.gridlayout.widget.GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,7 +197,7 @@
                     android:padding="5dp"
                     app:columnCount="2">
 
-
+                    <!-- Card 1: Maps -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card1"
                         android:layout_width="0dp"
@@ -109,7 +231,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-
+                    <!-- Card 2: Documents -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card2"
                         android:layout_width="0dp"
@@ -143,7 +265,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-
+                    <!-- Card 3: Absence -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card3"
                         android:layout_width="0dp"
@@ -177,7 +299,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-
+                    <!-- Card 4: Assistant AI -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card4"
                         android:layout_width="0dp"
@@ -211,7 +333,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-
+                    <!-- Card 5: Rattrapage -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card5"
                         android:layout_width="0dp"
@@ -245,7 +367,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-
+                    <!-- Card 6: Emploi du temps -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card6"
                         android:layout_width="0dp"
@@ -279,6 +401,7 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <!-- Card 7: Profile -->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card7"
                         android:layout_width="0dp"
@@ -311,12 +434,12 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-
                 </androidx.gridlayout.widget.GridLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
+    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

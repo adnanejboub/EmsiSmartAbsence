@@ -4,11 +4,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="YOUR_API_KEY"/>
 
     <application
         android:allowBackup="true"
@@ -20,37 +25,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmsiSmartPresence"
         tools:targetApi="31">
-
-        <!-- Déclaration de l'activité Assistant_virtuel -->
-        <activity android:name=".Assistant_virtuel"
+        <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AbsenceMarkingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RattrapagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmploiTempsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Assistant_virtuel"
             android:exported="true" />
-
-        <!-- Déclaration de l'API key pour Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-l825z_McWfj0Pb_Jf6pmej1QOJ5sa3Q" />
 
-        <!-- SplashScreen avec le logo -->
-
-
-        <!-- Définir Login comme activité principale -->
         <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Autres activités -->
-        <activity android:name=".Home" android:exported="false" />
-        <activity android:name=".Signup" android:exported="false" />
-
-        <!-- Déclaration de l'activité MapsActivity -->
-        <activity android:name=".MapsActivity"
+        </activity> <!-- Autres activités -->
+        <activity
+            android:name=".Home"
             android:exported="false" />
-
+        <activity
+            android:name=".Signup"
+            android:exported="false" /> <!-- Déclaration de l'activité MapsActivity -->
+        <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

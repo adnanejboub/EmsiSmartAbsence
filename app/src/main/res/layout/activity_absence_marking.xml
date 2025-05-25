@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:title="Marquage des Absences"
+        app:titleTextColor="@color/green1"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:navigationContentDescription="Retour à l'accueil" />
+
+    <!-- Spinner pour le groupe -->
+    <Spinner
+        android:id="@+id/spinner_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/spinner_background"
+        android:padding="8dp" />
+
+    <!-- Spinner pour le site -->
+    <Spinner
+        android:id="@+id/spinner_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/spinner_background"
+        android:padding="8dp" />
+
+    <!-- Sélection de la date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sélectionner une date"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:padding="12dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_select_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choisir"
+            android:textColor="@color/white"
+            android:background="@drawable/buuton_background"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+    <!-- RecyclerView pour les étudiants -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/students_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp"
+        android:padding="8dp" />
+
+    <!-- EditText pour les remarques -->
+    <EditText
+        android:id="@+id/remarks_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ajouter des remarques..."
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Bouton pour enregistrer -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:text="Enregistrer"
+        android:textColor="@color/white"
+        android:background="@drawable/buuton_background"
+        android:padding="12dp" />
+
+</LinearLayout>

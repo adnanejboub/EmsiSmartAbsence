@@ -1,31 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
 
-    <!-- EditText pour écrire la question ou le prompt -->
-    <EditText
-        android:id="@+id/prompt"
-        android:hint="Write your prompt here...."
+    <!-- Toolbar avec icône de retour -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="48sp" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:title="Assistant Virtuel"
+        app:titleTextColor="@color/green1"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:navigationContentDescription="Retour à l'accueil" />
 
-    <!-- Bouton pour envoyer -->
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Envoyer"
-        android:layout_gravity="end" />
+    <!-- RecyclerView pour afficher les messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messages_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
 
-    <!-- TextView pour afficher la réponse -->
     <TextView
-        android:id="@+id/geminianswer"
+        android:id="@+id/encourage_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Réponse ici"
-        android:textSize="16sp"
-        android:padding="16dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Posez une question ou discutez avec votre assistant !"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        android:textStyle="italic" />
+
+    <!-- LinearLayout pour EditText et AppCompatButton -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="18dp">
+
+        <EditText
+            android:id="@+id/prompt"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:hint="Écrivez votre message..."
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Envoyer"
+            android:textColor="@color/white"
+            android:background="@drawable/buuton_background"
+            android:layout_marginStart="8dp"
+            android:padding="12dp" />
+
+    </LinearLayout>
 
 </LinearLayout>
