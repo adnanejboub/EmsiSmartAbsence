@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmsiSmartPresence"
         tools:targetApi="31">
+
+        <activity
+            android:name=".DocumentsActivity"
+            android:exported="false" />
         <activity
             android:name=".ProfilSecurity"
             android:exported="false" />
@@ -40,6 +44,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA-l825z_McWfj0Pb_Jf6pmej1QOJ5sa3Q" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.emsismartpresence.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <activity
             android:name=".Login"

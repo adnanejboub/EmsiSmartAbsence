@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
-    private TextView coursAujourdhui, rattrapagesCount, prochainCours, adminName, welcomeText;
+    private TextView coursAujourdhui, rattrapagesCount, prochainCours, welcomeText;
     private static final List<String> DAYS_ORDER = Arrays.asList(
             "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"
     );
@@ -45,15 +45,13 @@ public class Home extends AppCompatActivity {
 
         // Set up navigation drawer header
         TextView currentUserEmail = navigationView.getHeaderView(0).findViewById(R.id.currentU);
-        adminName = findViewById(R.id.dashboard_adminName);
         welcomeText = findViewById(R.id.myDashboard);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null && currentUser.getEmail() != null) {
             currentUserEmail.setText(currentUser.getEmail());
-            updateProfessorName(currentUser.getUid());
+            updateUserName(currentUser.getUid());
         } else {
             currentUserEmail.setText("Non connecté");
-            adminName.setText("Mr/Mme");
             welcomeText.setText("Bienvenue");
             Log.w(TAG, "Aucun utilisateur connecté ou email non disponible");
             Intent intent = new Intent(Home.this, Login.class);
@@ -71,7 +69,7 @@ public class Home extends AppCompatActivity {
                 if (itemId == R.id.nav_maps) {
                     startActivity(new Intent(Home.this, MapsActivity.class));
                 } else if (itemId == R.id.nav_documents) {
-                    Toast.makeText(Home.this, "Fonctionnalité Documents à venir", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Home.this, DocumentsActivity.class));
                 } else if (itemId == R.id.nav_absence) {
                     startActivity(new Intent(Home.this, AbsenceMarkingActivity.class));
                 } else if (itemId == R.id.nav_assistant) {
@@ -118,7 +116,14 @@ public class Home extends AppCompatActivity {
 
         // Card 2: Documents
         CardView card2 = findViewById(R.id.card2);
-        card2.setOnClickListener(v -> Toast.makeText(Home.this, "Fonctionnalité Documents à venir", Toast.LENGTH_SHORT).show());
+        card2.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Home.this, DocumentsActivity.class));
+            } catch (Exception e) {
+                Log.e(TAG, "Erreur de navigation vers DocumentActivity", e);
+                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir Documents", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Card 3: Absence
         CardView card3 = findViewById(R.id.card3);
@@ -126,8 +131,8 @@ public class Home extends AppCompatActivity {
             try {
                 startActivity(new Intent(Home.this, AbsenceMarkingActivity.class));
             } catch (Exception e) {
-                Log.e(TAG, "Erreur de navigation vers AbsenceMarking", e);
-                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir AbsenceMarking", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Erreur de navigation vers AbsenceMarkingActivity", e);
+                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir Absence", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -149,7 +154,7 @@ public class Home extends AppCompatActivity {
                 startActivity(new Intent(Home.this, RattrapagesActivity.class));
             } catch (Exception e) {
                 Log.e(TAG, "Erreur de navigation vers RattrapagesActivity", e);
-                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir la liste des rattrapages", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir Rattrapages", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -166,33 +171,37 @@ public class Home extends AppCompatActivity {
 
         // Card 7: Profile
         CardView card7 = findViewById(R.id.card7);
-        card7.setOnClickListener(v -> Toast.makeText(Home.this, "Fonctionnalité Profil à venir", Toast.LENGTH_SHORT).show());
+        card7.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Home.this, Profil.class));
+            } catch (Exception e) {
+                Log.e(TAG, "Erreur de navigation vers Profil", e);
+                Toast.makeText(Home.this, "Erreur: Impossible d'ouvrir Profil", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void updateProfessorName(String userId) {
-        db.collection("professors").document(userId).get()
+    private void updateUserName(String userId) {
+        db.collection("users").document(userId).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         String fullName = documentSnapshot.getString("fullName");
-                        if (fullName != null) {
-                            adminName.setText(fullName);
+                        if (fullName != null && !fullName.trim().isEmpty()) {
                             welcomeText.setText("Bienvenue " + fullName);
-                            Log.d(TAG, "Nom du professeur mis à jour: " + fullName);
+                            Log.d(TAG, "Nom de l'utilisateur mis à jour: " + fullName);
                         } else {
-                            adminName.setText("Mr/Mme");
                             welcomeText.setText("Bienvenue");
-                            Log.w(TAG, "Champ fullName null pour userId: " + userId);
+                            Log.w(TAG, "Champ fullName vide ou null pour userId: " + userId);
                         }
                     } else {
-                        adminName.setText("Mr/Mme");
                         welcomeText.setText("Bienvenue");
-                        Log.w(TAG, "Document professeur non trouvé pour userId: " + userId);
+                        Log.w(TAG, "Document utilisateur non trouvé pour userId: " + userId);
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Log.e(TAG, "Erreur lors du chargement du nom du professeur", e);
-                    adminName.setText("Mr/Mme");
+                    Log.e(TAG, "Erreur lors du chargement du nom de l'utilisateur", e);
                     welcomeText.setText("Bienvenue");
+                    Toast.makeText(Home.this, "Erreur lors du chargement du nom", Toast.LENGTH_SHORT).show();
                 });
     }
 

@@ -7,7 +7,7 @@
       </SelectionState>
       <SelectionState runConfigName="Emsi_Smart_Presence.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-25T22:57:56.277796900Z">
+        <DropdownSelection timestamp="2025-05-25T23:17:38.901065900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\hp\.android\avd\Medium_Phone.avd" />

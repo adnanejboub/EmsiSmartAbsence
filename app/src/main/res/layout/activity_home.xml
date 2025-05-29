@@ -30,7 +30,7 @@
                 <RelativeLayout
                     android:id="@+id/topArea"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="180dp"
                     android:background="@drawable/background_gradient">
 
                     <!-- Menu Icon -->
@@ -43,31 +43,16 @@
                         android:contentDescription="@string/open_drawer"
                         app:srcCompat="@drawable/ic_menu" />
 
-                    <!-- Welcome Title -->
+                    <!-- Welcome Title with Professor Name -->
                     <TextView
                         android:id="@+id/myDashboard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="70dp"
+                        android:layout_centerInParent="true"
                         android:text="Bienvenue"
                         android:textColor="@color/green1"
-                        android:textSize="25sp"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
-
-                    <!-- Admin Name -->
-                    <TextView
-                        android:id="@+id/dashboard_adminName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/myDashboard"
-                        android:layout_alignStart="@id/myDashboard"
-                        android:layout_marginTop="4dp"
-                        android:text="Mr/Mme"
-                        android:textColor="@color/green"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
                 </RelativeLayout>
 
                 <!-- Statistics and Next Course Section -->
